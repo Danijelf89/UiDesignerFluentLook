@@ -50,10 +50,10 @@
                 </Grid.ColumnDefinitions>
 
                 <ui:TextBlock HorizontalAlignment="Right" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Text="Lookup name:" TextWrapping="Wrap"></ui:TextBlock>
-                <ui:TextBox Grid.Row="0" Grid.Column="2" Text="Lookup 1"></ui:TextBox>
+                <ui:TextBox Grid.Row="0" Grid.Column="2" Text="Lookup 1" HorizontalAlignment="Left"></ui:TextBox>
 
                 <ui:TextBlock Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Text="Destination fields:" TextWrapping="Wrap"></ui:TextBlock>
-                <ui:TextBox Grid.Row="1" Grid.Column="2" Text="Id; Name"></ui:TextBox>
+                <ui:TextBox Grid.Row="1" Grid.Column="2" Text="Id; Name" HorizontalAlignment="Left"></ui:TextBox>
 
 
                 <CheckBox Grid.Row="2" Grid.Column="2" IsChecked="True"/>
