@@ -1,0 +1,34 @@
+﻿<Page x:Class="UIDesignerWPFUI.Views.Pages.MenuItemsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:UIDesignerWPFUI.Views.Pages"
+      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+      ui:Design.Background="{DynamicResource ApplicationBackgroundBrush}"
+      ui:Design.Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+      Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MenuItemsPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <TreeView Grid.Column="0">
+            <TreeViewItem Header="Osnovno" IsExpanded="True">
+                <TreeViewItem Header="Drzava"/>
+                <TreeViewItem Header="Mest"/>
+            </TreeViewItem>
+            <TreeViewItem Header="Servisi" IsExpanded="True">
+                <TreeViewItem Header="Workflow"/>
+                <TreeViewItem Header="Nacin sifriranja"/>
+            </TreeViewItem>
+        </TreeView>
+
+        <ui:TextBlock Grid.Column="1" Margin="10" VerticalAlignment="Top">Select a menu item from the tree</ui:TextBlock>
+    </Grid>
+</Page>

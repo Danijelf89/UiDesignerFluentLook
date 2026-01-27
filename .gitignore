@@ -1,0 +1,5 @@
+*.vsidx
+*.suo
+.vs/
+bin/
+obj/
