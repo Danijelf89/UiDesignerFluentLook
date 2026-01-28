@@ -15,7 +15,7 @@
         ExtendsContentIntoTitleBar="True"
         WindowBackdropType="Mica"
         WindowCornerPreference="Round"
-        Title="LocalizationWindow" Height="250" Width="400"
+        Title="LocalizationWindow" SizeToContent="Height" Width="400"
         >
 
 

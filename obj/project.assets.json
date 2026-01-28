@@ -1675,11 +1675,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\CD-LP000026\\Desktop\\UidesignerFluentGit\\UiDesignerFluentLook\\UIDesignerWPFUI.csproj",
+      "projectUniqueName": "C:\\Users\\CD-LP000026\\Desktop\\New folder (2)\\UiDesignerFluentLook\\UIDesignerWPFUI.csproj",
       "projectName": "UIDesignerWPFUI",
-      "projectPath": "C:\\Users\\CD-LP000026\\Desktop\\UidesignerFluentGit\\UiDesignerFluentLook\\UIDesignerWPFUI.csproj",
+      "projectPath": "C:\\Users\\CD-LP000026\\Desktop\\New folder (2)\\UiDesignerFluentLook\\UIDesignerWPFUI.csproj",
       "packagesPath": "C:\\Users\\CD-LP000026\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\CD-LP000026\\Desktop\\UidesignerFluentGit\\UiDesignerFluentLook\\obj\\",
+      "outputPath": "C:\\Users\\CD-LP000026\\Desktop\\New folder (2)\\UiDesignerFluentLook\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\DevExpress 23.1\\Components\\Offline Packages",

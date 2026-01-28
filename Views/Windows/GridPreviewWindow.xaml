@@ -1,0 +1,50 @@
+<ui:FluentWindow x:Class="UIDesignerWPFUI.Views.Windows.GridPreviewWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        ui:Design.Background="{DynamicResource ApplicationBackgroundBrush}"
+        ui:Design.Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+        Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+        WindowStartupLocation="CenterOwner"
+        mc:Ignorable="d"
+        WindowState="Normal"
+        ExtendsContentIntoTitleBar="True"
+        WindowBackdropType="Mica"
+        WindowCornerPreference="Round"
+        Title="Grid Preview" Height="450" Width="700">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <ui:TitleBar Grid.Row="0" Header="Grid preview"
+            x:Name="TitleBar"
+            CloseWindowByDoubleClickOnIcon="True" />
+        <TabControl Grid.Row="1" Padding="0">
+            <TabItem Header="Osnovno">
+                <ToolBar>
+                    <ui:Button>Add new</ui:Button>
+                    <ui:Button>Change</ui:Button>
+                    <ui:Button>Delete</ui:Button>
+                </ToolBar>
+            </TabItem>
+            <TabItem Header="Dodatno">
+                <ToolBar>
+                    <ui:Button>Export</ui:Button>
+                    <ui:Button>Print</ui:Button>
+                </ToolBar>
+            </TabItem>
+        </TabControl>
+        <DataGrid Grid.Row="2"
+                  x:Name="PreviewDataGrid"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  Margin="10"
+                  Height="400"/>
+    </Grid>
+</ui:FluentWindow>

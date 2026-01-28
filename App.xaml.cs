@@ -49,8 +49,14 @@ namespace UIDesignerWPFUI
 
                 services.AddSingleton<LookupPage>();
                 services.AddSingleton<DashboardViewModel>();
+                services.AddSingleton<GridDataPageViewModel>();
+                services.AddSingleton<GridDataPage>();
+                services.AddSingleton<ItemDataPageViewModel>();
+                services.AddSingleton<ItemDataPage>();
                 services.AddSingleton<MenuItemsPage>();
                 services.AddSingleton<EntityContextPage>();
+                services.AddSingleton<EntityContextDataViewModel>();
+                services.AddSingleton<EntityContextData>();
                 services.AddSingleton<DataViewModel>();
                 services.AddSingleton<SettingsPage>();
                 services.AddSingleton<SettingsViewModel>();
