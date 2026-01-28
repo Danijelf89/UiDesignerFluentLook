@@ -5,6 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:UIDesignerWPFUI.Views.Pages"
       xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+      xmlns:models="clr-namespace:UIDesignerWPFUI.Models"
       mc:Ignorable="d"
       d:DesignHeight="450" d:DesignWidth="800"
       ScrollViewer.VerticalScrollBarVisibility="Disabled"
@@ -19,22 +20,58 @@
             <ColumnDefinition MinWidth="200" />
         </Grid.ColumnDefinitions>
 
-        <ui:ListView Grid.Column="0" VerticalAlignment="Stretch" Name="LisBox"
-                     ItemsSource="{Binding ViewModel.Fields}"
-                     SelectedItem="{Binding ViewModel.SelectedField, Mode=TwoWay}">
-            <ui:ListView.ItemTemplate>
-                <DataTemplate>
+        <TreeView Grid.Column="0" VerticalAlignment="Stretch" Name="ItemTree"
+                  ItemsSource="{Binding ViewModel.Items}"
+                  SelectedItemChanged="ItemTree_SelectedItemChanged">
+            <TreeView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Add Group Box" Command="{Binding ViewModel.AddGroupBoxCommand}" />
+                    <MenuItem Header="Add Field" Command="{Binding ViewModel.AddFieldCommand}" />
+                    <MenuItem Header="Add Field to Group" Command="{Binding ViewModel.AddFieldToGroupCommand}" />
+                </ContextMenu>
+            </TreeView.ContextMenu>
+            <TreeView.Resources>
+                <HierarchicalDataTemplate DataType="{x:Type models:GroupBoxItem}" ItemsSource="{Binding Fields}">
+                    <TextBlock Text="{Binding Name}" />
+                </HierarchicalDataTemplate>
+                <DataTemplate DataType="{x:Type models:FormFieldItem}">
                     <TextBlock Text="{Binding Name}" />
                 </DataTemplate>
-            </ui:ListView.ItemTemplate>
-        </ui:ListView>
+            </TreeView.Resources>
+        </TreeView>
 
         <GridSplitter Grid.Column="1" ResizeBehavior="PreviousAndCurrent" Width="4" HorizontalAlignment="Center" Background="{DynamicResource ControlStrokeColorDefaultBrush}" ResizeDirection="Columns" />
 
         <StackPanel Grid.Column="2" VerticalAlignment="Top" Height="Auto" Margin="5">
             <ui:Button Appearance="Primary" Command="{Binding ViewModel.PreviewFormCommand}">Preview</ui:Button>
 
-            <GroupBox Header="Data">
+            <!-- GroupBox detail panel -->
+            <GroupBox Header="Group Box Properties" Visibility="{Binding ViewModel.IsGroupSelected, Converter={StaticResource BooleanToVisibilityConverter}}">
+                <Grid HorizontalAlignment="Stretch">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200" />
+                        <ColumnDefinition Width="5" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <ui:TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Text="Name:" />
+                    <ui:TextBox Grid.Row="0" Grid.Column="2" Text="{Binding ViewModel.SelectedGroup.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Stretch" />
+
+                    <ui:TextBlock Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Text="Row:" />
+                    <ui:TextBox Grid.Row="1" Grid.Column="2" Text="{Binding ViewModel.SelectedGroup.Row, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Stretch" />
+
+                    <ui:TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Text="Column:" />
+                    <ui:TextBox Grid.Row="2" Grid.Column="2" Text="{Binding ViewModel.SelectedGroup.Column, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Stretch" />
+                </Grid>
+            </GroupBox>
+
+            <!-- Field detail panel -->
+            <GroupBox Header="Field Properties" Visibility="{Binding ViewModel.IsFieldSelected, Converter={StaticResource BooleanToVisibilityConverter}}">
                 <Grid HorizontalAlignment="Stretch">
                     <Grid.RowDefinitions>
                         <RowDefinition />

@@ -5,7 +5,9 @@
       "Bash(ls:*)",
       "Bash(find:*)",
       "Bash(head:*)",
-      "Bash(findstr:*)"
+      "Bash(findstr:*)",
+      "Bash(dotnet clean:*)",
+      "Bash(Select-String -Pattern \"Build succeeded|error CS|Error\\\\\\(s\\\\\\)\")"
     ]
   }
 }

@@ -1,3 +1,5 @@
+using System.Windows;
+using System.Windows.Controls;
 using UIDesignerWPFUI.ViewModels.Pages;
 using Wpf.Ui.Abstractions.Controls;
 
@@ -13,10 +15,11 @@ namespace UIDesignerWPFUI.Views.Pages
             DataContext = this;
 
             InitializeComponent();
+        }
 
-            this.LisBox.SelectedIndex = 0;
-
-
+        private void ItemTree_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            ViewModel.SelectedItem = e.NewValue;
         }
     }
 }
